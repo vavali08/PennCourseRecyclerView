@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Penn Course Re(cycler) View</string>
+    <string name="section_code">Section Code</string>
+    <string name="title">Title</string>
+    <string name="semester">Semester</string>
+    <string name="status">Status</string>
+    <string name="activity_type">Activity Type</string>
+    <string name="course_level">COURSE LEVEL</string>
+    <string name="course_level_image">course level image</string>
+</resources>
