@@ -8,7 +8,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import org.w3c.dom.Text
 
-class SectionAdapter (private val sections: MutableList<Section>): RecyclerView.Adapter<SectionAdapter.SectionViewHolder>() {
+class SectionAdapter (private val sections: MutableList<Section>):
+    RecyclerView.Adapter<SectionAdapter.SectionViewHolder>() {
 
     inner class SectionViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val sectionCodeText: TextView = itemView.findViewById(R.id.section_code)
@@ -17,7 +18,9 @@ class SectionAdapter (private val sections: MutableList<Section>): RecyclerView.
         val semesterText: TextView = itemView.findViewById(R.id.Semester)
         val statusText: TextView = itemView.findViewById(R.id.status)
         val courseLevelImage: ImageView = itemView.findViewById(R.id.course_level_image)
+        /*
         init {
+
             // Setup the click listener
             itemView.setOnClickListener {
                 // Triggers click upwards to the adapter on click
@@ -27,10 +30,14 @@ class SectionAdapter (private val sections: MutableList<Section>): RecyclerView.
                 }
             }
         }
+
+         */
     }
 
-    // When the view holder gets created, inflate it with a layout from an XML file using our friendly neighborhood LayoutInflater
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SectionAdapter.SectionViewHolder {
+    // When the view holder gets created, inflate it with a layout from an XML file using our
+    // friendly neighborhood LayoutInflater
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):
+            SectionAdapter.SectionViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val view = layoutInflater
             .inflate(R.layout.section_list_item, parent, false)
@@ -42,7 +49,8 @@ class SectionAdapter (private val sections: MutableList<Section>): RecyclerView.
         return sections.size
     }
 
-    // Tell the adapter what to do when binding the viewholder to the item at a certain position in the list
+    // Tell the adapter what to do when binding the viewholder to the item at a certain position
+    // in the list
     override fun onBindViewHolder(holder: SectionViewHolder, position: Int) {
         val section = sections[position]
 
@@ -69,22 +77,22 @@ class SectionAdapter (private val sections: MutableList<Section>): RecyclerView.
             "***" -> "Undefined"
             else -> "Undefined Activity"
         }
-        /*
+
         try {
-            val year = section.semester.substring(0, 3)
+            val year = section.semester.substring(0, 4)
             sectionSemester.text = when(section.semester[4]) {
-                'A' -> "Spring$year"
-                'B' -> "Summer$year"
-                'C' -> "Fall$year"
+                'A' -> "Spring $year"
+                'B' -> "Summer $year"
+                'C' -> "Fall $year"
                 else -> "Undefined Semester"
             }
         } catch (e: StringIndexOutOfBoundsException) {
             sectionSemester.text = "Undefined Semester"
         }
 
-         */
 
-        sectionSemester.text = section.semester
+
+        //sectionSemester.text = section.semester
 
         sectionStatus.text = when(section.status) {
             "O" -> "Open"
